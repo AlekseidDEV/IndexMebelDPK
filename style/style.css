@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bitrix_index_page_wrapper{
+    margin-top: 40px;
+}
+
+.bitrix_index_page_wrapper a{
+    text-decoration: none;
+}
+
+.bitrix_index_page_wrapper img{
+    display: block;
+}
+
+
+
+.container_index{
+    max-width: 1560px;
+    width: 100%;
+    margin: auto;
+}
+
