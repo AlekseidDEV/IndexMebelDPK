@@ -1,4 +1,4 @@
-export const scrollBlur = () => {
+export const scrollBlock = () => {
     const scrollBlock = document.querySelector('.reviews_area')
     const blurBlock = document.querySelector('.blur_block')
 

@@ -1,9 +1,8 @@
 import { sliderWorker } from "./modules/sliderworker";
 import { showRoomSlider } from "./modules/showroomslider";
 import { swiperMobile } from "./modules/swipermobile";
-import { scrollBlur } from "./modules/scrollblur";
+import { scrollBlock } from "./modules/scrollblockreview";
 import { reviewChange } from "./modules/reviewchangestars";
-
 import { bodyListener } from "./modules/bodylistener";
 import { dropDownmenu } from "./modules/dropdownmenu";
 import { maskPhone } from "./modules/helpers/inputmask";
@@ -26,7 +25,7 @@ const swiperCauseSetting = {
 
 sliderWorker()
 showRoomSlider()
-scrollBlur()
+scrollBlock()
 reviewChange()
 
 swiperMobile(".container_swiper_wrapper", ".card_block_target", ".card_target", '.dots_mobile_wrapper', 601, swiperTargetSetting)

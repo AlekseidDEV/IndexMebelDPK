@@ -1,19 +1,21 @@
 import { addObserverClass } from "./addobserverclass"
 import { delObserverClass } from "./delobserverclass"
+import { linkExtend } from "./linkextend"
 import { observerCard } from "./observercard"
 import { swapObserverElem } from "./observerswapelement"
 import { observerTitles } from "./observertitles"
 
 export const bodyListener = () => {
-    window.stateFunc = false
-
+   
+   let clicker = false
+   
     const startModules = () => {
-        if(window.innerWidth >= 1000 && stateFunc){
+        if(window.innerWidth >= 1000){
             observerTitles()
             swapObserverElem()
             observerCard()
             delObserverClass()
-        } else if(window.innerWidth < 1000 && !stateFunc){
+        } else if(window.innerWidth < 1000){
             addObserverClass()
         }
     }
@@ -32,6 +34,9 @@ export const bodyListener = () => {
         
         if(e.target.className === 'btn_requisites'){
             location.href = 'https://mebeldpk.ru/help/payment/'
+        } else if(e.target.matches('.link_extend')){
+            clicker = !clicker
+            linkExtend(e.target, e.target.dataset['block_extended'], clicker)
         }
     })
 

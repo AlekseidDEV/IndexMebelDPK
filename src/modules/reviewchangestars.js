@@ -1,5 +1,4 @@
 export const reviewChange = () => {
-   const reviewChange = document.querySelector('.fields_for_review')
    const starsBlock = document.querySelector('.put_stars')
    const allStars = document.querySelectorAll('.star_grey')
 
@@ -43,7 +42,7 @@ export const reviewChange = () => {
         } 
    }
 
-   reviewChange.addEventListener('click', (e) => {
+   starsBlock.addEventListener('click', (e) => {
         if(e.target.closest('.put_stars')){
             changeStars(e.target)
         } 
