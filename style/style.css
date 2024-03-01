@@ -61,6 +61,7 @@ body {
 
 .bitrix_index_page_wrapper {
     margin-top: 40px;
+    overflow: hidden;
 }
 
 .bitrix_index_page_wrapper a {
@@ -89,6 +90,7 @@ body {
     font-weight: 700;
     line-height: normal;
     margin-bottom: 10px;
+    transform: translateX(-800px);
 }
 
 .sub_title_five {
@@ -98,6 +100,7 @@ body {
     font-size: 40px;
     font-style: italic;
     font-weight: 700;
+    transform: translateX(-800px);
     line-height: normal;
 }
 
@@ -172,6 +175,8 @@ body {
     max-width: 493px;
     width: 100%;
     display: flex;
+    transform: translateY(250px);
+    opacity: 0;
 }
 
 .five_img_card {
@@ -320,6 +325,7 @@ body {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    transform: translateX(800px);
 }
 
 .tit_text_cause {
@@ -351,6 +357,8 @@ body {
     max-width: 568px;
     display: flex;
     width: 100%;
+    transform: translateY(200px);
+    opacity: 0;
 }
 
 .tit_card_cause {
@@ -501,6 +509,7 @@ body {
     font-weight: 700;
     line-height: normal;
     margin-bottom: 10px;
+    transform: translateX(-800px);
 }
 
 .showroom_sub_tit {
@@ -511,6 +520,7 @@ body {
     font-style: italic;
     font-weight: 700;
     line-height: normal;
+    transform: translateX(-800px);
 }
 
 .invite_tit {
@@ -683,6 +693,11 @@ body {
     margin-top: 130px;
 }
 
+.card_anim{
+    transform: translateY(200px);
+    opacity: 0;
+}
+
  .target_tit {
     color: #2E9375;
     font-family: "Montserrat";
@@ -691,6 +706,7 @@ body {
     font-weight: 700;
     line-height: normal;
     margin-bottom: 10px;
+    transform: translateX(800px);
 }
 
 .target_tit_sub {
@@ -700,6 +716,7 @@ body {
     font-style: italic;
     font-weight: 700;
     line-height: normal;
+    transform: translateX(800px);
 }
 
 .tit_target {
@@ -1012,6 +1029,7 @@ body {
     line-height: 61px;
     text-align: left;
     margin-bottom: 10px;
+    transform: translateX(800px);
 }
 
 .review_title_sub {
@@ -1021,6 +1039,7 @@ body {
     font-weight: 700;
     line-height: 49px;
     text-align: left;
+    transform: translateX(800px);
 }
 
 .block_reviews_areas {
@@ -1350,6 +1369,7 @@ background: rgb(255, 255, 255);
     text-align: left;
     position: relative;
     overflow: hidden;
+    border: none;
 }
 
 #in1,
@@ -1611,6 +1631,7 @@ background: rgb(255, 255, 255);
         padding-right: 40px;
         display: flex;
         align-items: center;
+        border: none;
         /* text */
         color: rgb(255, 255, 255);
 font-family: "Montserrat";
@@ -1653,6 +1674,7 @@ margin-left: 15px;
     line-height: 61px;
     text-align: left;
     margin-bottom: 10px;
+    transform: translateX(800px);
 }
 
 .h3_title_approach{
@@ -1663,6 +1685,7 @@ margin-left: 15px;
     line-height: 49px;
     text-align: center;
     padding-left: 250px;
+    transform: translateX(800px);
 }
 
 .block_approah_cont{
@@ -1789,6 +1812,7 @@ font-weight: 700;
 line-height: 61px;
 text-align: right;
 margin-bottom: 10px;
+transform: translateX(-800px);
     }
 
     .h3_title_support{
@@ -1801,6 +1825,7 @@ text-align: right;
 max-width: 1122px;
 width: 100%;
 margin-left: auto;
+transform: translateX(-800px);
     }
 
     .item_support{
@@ -2073,7 +2098,7 @@ position: relative;
         margin-top: 130px;
     }
 
-.get_catalog_block{
+.get_swap{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -2089,6 +2114,7 @@ position: relative;
         font-weight: 700;
         line-height: normal;
         margin-bottom: 10px;
+        transform: translateX(-800px);
     }
     
     .title_get_catalog_sub {
@@ -2099,6 +2125,7 @@ position: relative;
         font-style: italic;
         font-weight: 700;
         line-height: normal;
+        transform: translateX(-800px);
     }
     
     .text_catalog_get {
@@ -2203,6 +2230,7 @@ position: relative;
         justify-content: center;
         align-items: center;
         display: flex;
+        border: none;
         /* text */
         color: #fff;
         font-family: "Montserrat";
@@ -2224,6 +2252,7 @@ position: relative;
     .active_option {
         display: block;
         position: relative;
+        z-index: 1;
     }
     
     .dropp_down {
@@ -2250,6 +2279,17 @@ position: relative;
         top: 0px;
         left: 0;
         width: 100%;
+        z-index: 0;
+    }
+
+    .div_wrapp_cont_menu {
+        background: rgb(245, 242, 242);
+        padding: 8px;
+        cursor: pointer;
+    }
+    
+    .div_wrapp_cont_menu:hover {
+        background: rgb(224, 220, 220);
     }
 
     .img_get_cont{
@@ -2288,7 +2328,7 @@ position: relative;
             padding-bottom: 30px;
         }
 
-        .get_catalog_block::after{
+        .get_swap::after{
             position: absolute;
             content: '';
             background: url(../img/backBefore.png) no-repeat center;
@@ -2316,7 +2356,7 @@ position: relative;
     }
 
     @media (max-width: 414px){
-        .get_catalog_block::after{
+        .get_swap::after{
             bottom: -60%;
         }
 
@@ -2345,6 +2385,7 @@ font-weight: 700;
 line-height: 61px;
 letter-spacing: 0%;
 text-align: left;
+transform: translateX(800px);
     }
 
     .sub_title_stages{
@@ -2355,6 +2396,7 @@ font-weight: 700;
 line-height: 49px;
 letter-spacing: 0%;
 text-align: left;
+transform: translateX(800px);
     }
 
     .block_stages_worker{
@@ -2605,6 +2647,7 @@ font-weight: 700;
 line-height: 61px;
 letter-spacing: 0%;
 text-align: left;
+transform: translateX(800px);
     }
 
     .sub_title_sales{
@@ -2616,6 +2659,7 @@ line-height: 49px;
 letter-spacing: 0%;
 text-align: center;
 padding-right: 270px;
+transform: translateX(800px);
     }  
 
     .sale_card::after{
@@ -2854,6 +2898,7 @@ text-align: left;
     line-height: 61px;
     text-align: left;
     margin-bottom: 10px;
+    transform: translateX(800px);
     }
     .sub_title_addres{
     color: rgb(87, 87, 87);
@@ -2863,6 +2908,7 @@ text-align: left;
     line-height: 49px;
     letter-spacing: 0%;
     text-align: left;
+    transform: translateX(800px);
     }
 
     .locate_magazine{
@@ -3021,6 +3067,7 @@ text-align: left;
         justify-content: center;
         gap: 60px;
         margin-top: 60px;
+        overflow: hidden;
     }
 
     .link_socials_img{
@@ -3057,6 +3104,7 @@ text-align: left;
         font-weight: 700;
         line-height: normal;
         margin-bottom: 10px;
+        transform: translateX(800px);
     }
     
     .block_our_worker {
@@ -3073,6 +3121,7 @@ text-align: left;
         display: flex;
         justify-content: center;
         padding-left: 250px;
+        transform: translateX(800px);
     }
     
     .our_text_cust {
@@ -3271,6 +3320,40 @@ text-align: left;
     left: 110%;
 }
 
+.h3_obs,
+.h2_obs{
+    opacity: 0;
+}
+
+
+.visible_title_h3,
+.visible_title_h2{
+    opacity: 1;
+    transform: translateX(0) !important;
+    transition: opacity 1s, transform 1s;
+}
+
+.visible_swap{
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s, transform 1s;
+}
+
+.swap_element{
+    transform: translateY(250px);
+    opacity: 0
+}
+
+.card_visible{
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s, transform 1s;
+}
+
+button{
+    cursor: pointer;
+}
+
 @media (max-width: 414px) {
     .bitrix_index_page_wrapper h2 {
         font-size: var(--small-title_green);
@@ -3363,6 +3446,46 @@ text-align: left;
     .arrow_green_slide_right:active {
         background: url(../img/arr_act_green_rig.svg);
     }
+}
+
+/* сбросы для обсервера*/
+
+.mobile_visible{
+    transform: translate(0px, 0px) !important;
+    opacity: 1;
+    transition: none;
+}
+
+@media (max-width: 1200px){
+    
+    .title_get_catalog_sub,
+    .title_get_catalog,
+    .h3_title_support,
+    .h2_title_support,
+    .showroom_sub_tit,
+    .sub_title_five,
+    .showroom_tit,
+    .title_five{
+        transform: translateX(-600px);
+   }
+
+   .tit_sub_worker,
+   .tit_worker,
+   .title_addres,
+   .sub_title_addres,
+   .title_sales,
+   .sub_title_sales,
+   .title_stages,
+   .sub_title_stages,
+   .h2_title_approach,
+   .h3_title_approach,
+    .review_title_sub,
+    .review_title,
+    .target_tit_sub,
+   .target_tit,
+   .tit_cause{
+    transform: translateX(600px);
+   }
 }
 
 
