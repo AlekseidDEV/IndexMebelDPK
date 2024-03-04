@@ -42,22 +42,23 @@ export const reviewChange = () => {
         } 
    }
 
-   starsBlock.addEventListener('click', (e) => {
-        if(e.target.closest('.put_stars')){
-            changeStars(e.target)
-        } 
+starsBlock.addEventListener('click', (e) => {
+    if(e.target.closest('.put_stars')){
+        changeStars(e.target)
+    } 
    })
-   starsBlock.addEventListener('mouseover', (e) => {
+starsBlock.addEventListener('mouseover', (e) => {
     if(e.target.matches('.star_grey')){
         effectVisibleStars(e.target.dataset['index_vidible'])
     } 
 })
-   starsBlock.addEventListener('mouseleave', (e) => {
-        activeStars = document.querySelectorAll('.activeStar')
 
-        activeStars.forEach((star) => {
-            star.classList.remove('activeStar')
-        })
-        changeStars()
+starsBlock.addEventListener('mouseleave', (e) => {
+    activeStars = document.querySelectorAll('.activeStar')
+
+    activeStars.forEach((star) => {
+         star.classList.remove('activeStar')
+    })
+    changeStars()
 })
 }

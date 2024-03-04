@@ -6,6 +6,7 @@ import { reviewChange } from "./modules/reviewchangestars";
 import { bodyListener } from "./modules/bodylistener";
 import { dropDownmenu } from "./modules/dropdownmenu";
 import { maskPhone } from "./modules/helpers/inputmask";
+import { changeImgReview } from "./modules/changeimgreview";
 
 import 'swiper/css'
 import 'swiper/css/pagination';
@@ -33,6 +34,8 @@ swiperMobile(".container_swiper_cause", ".block_cause_card", ".cause_card", '.wr
 
 bodyListener()
 dropDownmenu()
+changeImgReview()
+
 maskPhone('input[type="tel"]')
 
 

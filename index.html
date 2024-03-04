@@ -456,7 +456,7 @@
                                     </div>
 
                                     <div class="block_text_reviews">
-                                        <div id="review_ext1" class="all_text_reviews">
+                                        <div class="all_text_reviews">
                                             <p class="text_stock">Lorem ipsum dolor sit amet, consectetur adipiscing
                                                 elit, sed do eiusmod tempor incididunt ut labore consectetur adipiscing
                                                 elit, sed do eiusmod tempor incididunt ut labore.
@@ -505,7 +505,7 @@
                                     </div>
 
                                     <div class="block_text_reviews">
-                                        <div id="review_ext1" class="all_text_reviews">
+                                        <div  class="all_text_reviews">
                                             <p class="text_stock">Lorem ipsum dolor sit amet, consectetur adipiscing
                                                 elit, sed do eiusmod tempor incididunt ut labore consectetur adipiscing
                                                 elit, sed do eiusmod tempor incididunt ut labore.
@@ -554,7 +554,7 @@
                                     </div>
 
                                     <div class="block_text_reviews">
-                                        <div id="review_ext1" class="all_text_reviews">
+                                        <div class="all_text_reviews">
                                             <p class="text_stock">Lorem ipsum dolor sit amet, consectetur adipiscing
                                                 elit, sed do eiusmod tempor incididunt ut labore consectetur adipiscing
                                                 elit, sed do eiusmod tempor incididunt ut labore.
@@ -626,42 +626,58 @@
                             <form id="form-review" class="form_review">
                                 <div class="field_info_user">
                                     <div class="input_wrapper">
-                                        <input class="input_rev" type="text" placeholder="Как Вас зовут">
-                                        <input class="input_rev" type="text" placeholder="Какое изделие заказывали">
+                                        <input name="name_user" class="input_rev" type="text" placeholder="Как Вас зовут">
+                                        <input name="name_product" class="input_rev" type="text" placeholder="Какое изделие заказывали">
                                     </div>
-                                    <textarea class="textarea_rev" cols="30" rows="10"
+                                    <textarea maxlength="771" name="text_message" class="textarea_rev" cols="30" rows="10"
                                         placeholder="Напишите тут все, что Вы думаете..."></textarea>
                                 </div>
                                 <p class="put_img_title">Прикрепите фото или видео</p>
                                 <div class="block_inputs_imgfile">
                                     <label class="active_choose" for="in1">
+                                        <div class="fake_input"></div>
                                         <input accept=".jpg, .jpeg, .png" id="in1" type="file">
                                     </label>
                                     <label class="not_selected" for="in2">
-                                        <input id="in2" type="file">
+                                        <div class="fake_input"></div>
+                                        <span title="Удалить фото"  class="delimg"><span class="close_icon"></span></span>
+                                        <input  id="in2" type="file">
                                     </label>
                                     <label class="not_selected" for="in3">
-                                        <input id="in3" type="file">
+                                        <div class="fake_input"></div>
+                                        <span title="Удалить фото"  class="delimg"><span class="close_icon"></span></span>
+                                        <input  id="in3" type="file">
                                     </label>
                                     <label class="not_selected" for="in4">
-                                        <input id="in4" type="file">
+                                        <div class="fake_input"></div>
+                                        <span title="Удалить фото"  class="delimg"><span class="close_icon"></span></span>
+                                        <input  id="in4" type="file">
                                     </label>
                                     <label class="not_selected" for="in5">
-                                        <input id="in5" type="file">
+                                        <div class="fake_input"></div>
+                                        <span title="Удалить фото"  class="delimg"><span class="close_icon"></span></span>
+                                        <input  id="in5" type="file">
                                     </label>
                                     <label class="not_selected" for="in6">
+                                        <div class="fake_input"></div>
+                                        <span title="Удалить фото"  class="delimg"><span class="close_icon"></span></span>
                                         <input id="in6" type="file">
                                     </label>
                                     <label class="not_selected" for="in7">
+                                        <div class="fake_input"></div>
+                                        <span  title="Удалить фото" class="delimg"><span class="close_icon"></span></span>
                                         <input id="in7" type="file">
                                     </label>
                                     <label class="not_selected" for="in8">
+                                        <div class="fake_input"></div>
+                                        <span title="Удалить фото"  class="delimg"><span class="close_icon"></span></span>
                                         <input id="in8" type="file">
                                     </label>
                                 </div>
+                                <p class="message_file"></p>
 
                                 <div class="wrapper_send_reviewbtn">
-                                    <button href="#" class="rev_btn_send hover_btn">Отправить</button>
+                                    <button type="submit" class="rev_btn_send hover_btn">Отправить</button>
                                 </div>
                             </form>
                         </div>
@@ -689,10 +705,10 @@
     
                 <form id="form-fonin" class="block_forninteract">
                     <div class="inputs_interact">
-                        <input type="tel" placeholder="Номер телефона">
-                        <input type="text" placeholder="Ваше имя">
+                        <input name="phone" type="tel" placeholder="Номер телефона">
+                        <input name="name_user" type="text" placeholder="Ваше имя">
                     </div>
-                    <button class="btn_form_fornint" href="#">Отправить</button>
+                    <button class="btn_form_fornint">Отправить</button>
                 </form>
             </div>
             <!-- block_forninteract -->
@@ -982,7 +998,7 @@
                                         </div>
             
                                         <div class="wrapp_btn_get_catalog">
-                                            <button href="#" class="get_catalog_btn hover_btn">Получить каталог</button>
+                                            <button class="get_catalog_btn hover_btn">Получить каталог</button>
                                         </div>
                                     </div>
                                 </form>
@@ -1004,106 +1020,255 @@
                 </h3>
                 <div class="block_stages_worker swap_element desk_obs">
                     <div class="block_stages_info">
-                        <div class="stage_item active_stage_item">
-                            <div class="wrapp_number_item">
-                                <span class="number_stage_"></span>
+                        <div class="mobile_hide_wrapper">
+                            <div class="stage_item active_stage_item">
+                                <div class="wrapp_number_item">
+                                    <span class="number_stage_">01</span>
+                                </div>
+                                <div class="block_text_stage">
+                                    <p class="title-desc_stage_item">Lorem ipsum dolor sit amet, consectetur</p>
+                                    <p class="desc_stage_item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore consectetur adipiscing elit</p>
+                                </div>
                             </div>
-                            <div class="block_text_stage">
-                                <p class="title-desc_stage_item">Lorem ipsum dolor sit amet, consectetur</p>
-                                <p class="desc_stage_item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore consectetur adipiscing elit</p>
-                            </div>
-                        </div>
 
-                        <div class="mobile_stage_area">
-                            <p class="mob_stage_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore consectetur adipiscing elit</p>
-                            <div class="block_area_stage_mob active_area_">
-                                <img src="./img/Rectangle 124.png" alt="img" class="stages-image">
-                                <div class="block_form_stages">
-                                    <p class="leave_left_stage">
-                                        Оставьте заявку и получите дополнительную консультацию прямо сейчас
-                                    </p>
-        
-                                    <form id="form-stage1" class="form_stages">
-                                            <div class="wrapper_stage_input">
-                                                <input class="input_stage" type="tel" placeholder="Номер телефона">
-                                                <input class="input_stage" type="text" placeholder="Ваше имя">
-                                            </div>
-                                             <a href="#" class="btn_stage_form hover_btn">Отправить заявку</a>
-                                    </form>
+                            <div class="mobile_stage_area active_area_">
+                                <p class="mob_stage_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore consectetur adipiscing elit</p>
+                                <div class="block_area_stage_mob ">
+                                    <img src="./img/Rectangle 124.png" alt="img" class="stages-image_mob">
+                                    <div class="block_form_stages">
+                                        <p class="leave_left_stage">
+                                            Оставьте заявку и получите дополнительную консультацию прямо сейчас
+                                        </p>
+            
+                                        <form id="form-stage1" class="form_stages">
+                                                <div class="wrapper_stage_input">
+                                                    <input name="phone" class="input_stage" type="tel" placeholder="Номер телефона">
+                                                    <input name="name_user" class="input_stage" type="text" placeholder="Ваше имя">
+                                                </div>
+                                                 <button type="submit" class="btn_stage_form hover_btn">Отправить заявку</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="stage_item">
-                            <div class="wrapp_number_item">
-                                <span class="number_stage_"></span>
+                        <div class="mobile_hide_wrapper">
+                            <div class="stage_item">
+                                <div class="wrapp_number_item">
+                                    <span class="number_stage_">02</span>
+                                </div>
+                                <div class="block_text_stage">
+                                    <p class="title-desc_stage_item">Lorem ipsum dolor sit amet, consectetur</p>
+                                    <p class="desc_stage_item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore consectetur adipiscing elit</p>
+                                </div>
                             </div>
-                            <div class="block_text_stage">
-                                <p class="title-desc_stage_item">Lorem ipsum dolor sit amet, consectetur</p>
-                                <p class="desc_stage_item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+
+                            <div class="mobile_stage_area">
+                                <p class="mob_stage_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     incididunt ut labore consectetur adipiscing elit</p>
+                                <div class="block_area_stage_mob ">
+                                    <img src="./img/Rectangle 124.png" alt="img" class="stages-image_mob">
+                                    <div class="block_form_stages">
+                                        <p class="leave_left_stage">
+                                            Оставьте заявку и получите дополнительную консультацию прямо сейчас
+                                        </p>
+            
+                                        <form id="form-stage1" class="form_stages">
+                                                <div class="wrapper_stage_input">
+                                                    <input name="phone" class="input_stage" type="tel" placeholder="Номер телефона">
+                                                    <input name="name_user" class="input_stage" type="text" placeholder="Ваше имя">
+                                                </div>
+                                                 <button type="submit" class="btn_stage_form hover_btn">Отправить заявку</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="stage_item">
-                            <div class="wrapp_number_item">
-                                <span class="number_stage_"></span>
+                        <div class="mobile_hide_wrapper">
+                            <div class="stage_item">
+                                <div class="wrapp_number_item">
+                                    <span class="number_stage_">03</span>
+                                </div>
+                                <div class="block_text_stage">
+                                    <p class="title-desc_stage_item">Lorem ipsum dolor sit amet, consectetur</p>
+                                    <p class="desc_stage_item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore consectetur adipiscing elit</p>
+                                </div>
                             </div>
-                            <div class="block_text_stage">
-                                <p class="title-desc_stage_item">Lorem ipsum dolor sit amet, consectetur</p>
-                                <p class="desc_stage_item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+
+                            <div class="mobile_stage_area">
+                                <p class="mob_stage_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     incididunt ut labore consectetur adipiscing elit</p>
+                                <div class="block_area_stage_mob ">
+                                    <img src="./img/Rectangle 124.png" alt="img" class="stages-image_mob">
+                                    <div class="block_form_stages">
+                                        <p class="leave_left_stage">
+                                            Оставьте заявку и получите дополнительную консультацию прямо сейчас
+                                        </p>
+            
+                                        <form id="form-stage1" class="form_stages">
+                                                <div class="wrapper_stage_input">
+                                                    <input name="phone" class="input_stage" type="tel" placeholder="Номер телефона">
+                                                    <input name="name_user" class="input_stage" type="text" placeholder="Ваше имя">
+                                                </div>
+                                                 <button type="submit" class="btn_stage_form hover_btn">Отправить заявку</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="stage_item">
-                            <div class="wrapp_number_item">
-                                <span class="number_stage_"></span>
+                        <div class="mobile_hide_wrapper">
+                            <div class="stage_item">
+                                <div class="wrapp_number_item">
+                                    <span class="number_stage_">04</span>
+                                </div>
+                                <div class="block_text_stage">
+                                    <p class="title-desc_stage_item">Lorem ipsum dolor sit amet, consectetur</p>
+                                    <p class="desc_stage_item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore consectetur adipiscing elit</p>
+                                </div>
                             </div>
-                            <div class="block_text_stage">
-                                <p class="title-desc_stage_item">Lorem ipsum dolor sit amet, consectetur</p>
-                                <p class="desc_stage_item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+
+                            <div class="mobile_stage_area">
+                                <p class="mob_stage_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     incididunt ut labore consectetur adipiscing elit</p>
+                                <div class="block_area_stage_mob ">
+                                    <img src="./img/Rectangle 124.png" alt="img" class="stages-image_mob">
+                                    <div class="block_form_stages">
+                                        <p class="leave_left_stage">
+                                            Оставьте заявку и получите дополнительную консультацию прямо сейчас
+                                        </p>
+            
+                                        <form id="form-stage1" class="form_stages">
+                                                <div class="wrapper_stage_input">
+                                                    <input name="phone" class="input_stage" type="tel" placeholder="Номер телефона">
+                                                    <input name="name_user" class="input_stage" type="text" placeholder="Ваше имя">
+                                                </div>
+                                                 <button type="submit" class="btn_stage_form hover_btn">Отправить заявку</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="stage_item">
-                            <div class="wrapp_number_item">
-                                <span class="number_stage_"></span>
+                        <div class="mobile_hide_wrapper">
+                            <div class="stage_item">
+                                <div class="wrapp_number_item">
+                                    <span class="number_stage_">05</span>
+                                </div>
+                                <div class="block_text_stage">
+                                    <p class="title-desc_stage_item">Lorem ipsum dolor sit amet, consectetur</p>
+                                    <p class="desc_stage_item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore consectetur adipiscing elit</p>
+                                </div>
                             </div>
-                            <div class="block_text_stage">
-                                <p class="title-desc_stage_item">Lorem ipsum dolor sit amet, consectetur</p>
-                                <p class="desc_stage_item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+
+                            <div class="mobile_stage_area">
+                                <p class="mob_stage_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     incididunt ut labore consectetur adipiscing elit</p>
+                                <div class="block_area_stage_mob ">
+                                    <img src="./img/Rectangle 124.png" alt="img" class="stages-image_mob">
+                                    <div class="block_form_stages">
+                                        <p class="leave_left_stage">
+                                            Оставьте заявку и получите дополнительную консультацию прямо сейчас
+                                        </p>
+            
+                                        <form id="form-stage1" class="form_stages">
+                                                <div class="wrapper_stage_input">
+                                                    <input name="phone" class="input_stage" type="tel" placeholder="Номер телефона">
+                                                    <input name="name_user" class="input_stage" type="text" placeholder="Ваше имя">
+                                                </div>
+                                                 <button type="submit" class="btn_stage_form hover_btn">Отправить заявку</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="stage_item">
-                            <div class="wrapp_number_item">
-                                <span class="number_stage_"></span>
+                        <div class="mobile_hide_wrapper">
+                            <div class="stage_item">
+                                <div class="wrapp_number_item">
+                                    <span class="number_stage_">06</span>
+                                </div>
+                                <div class="block_text_stage">
+                                    <p class="title-desc_stage_item">Lorem ipsum dolor sit amet, consectetur</p>
+                                    <p class="desc_stage_item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore consectetur adipiscing elit</p>
+                                </div>
                             </div>
-                            <div class="block_text_stage">
-                                <p class="title-desc_stage_item">Lorem ipsum dolor sit amet, consectetur</p>
-                                <p class="desc_stage_item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+
+                            <div class="mobile_stage_area">
+                                <p class="mob_stage_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     incididunt ut labore consectetur adipiscing elit</p>
+                                <div class="block_area_stage_mob ">
+                                    <img src="./img/Rectangle 124.png" alt="img" class="stages-image_mob">
+                                    <div class="block_form_stages">
+                                        <p class="leave_left_stage">
+                                            Оставьте заявку и получите дополнительную консультацию прямо сейчас
+                                        </p>
+            
+                                        <form id="form-stage1" class="form_stages">
+                                                <div class="wrapper_stage_input">
+                                                    <input name="phone" class="input_stage" type="tel" placeholder="Номер телефона">
+                                                    <input name="name_user" class="input_stage" type="text" placeholder="Ваше имя">
+                                                </div>
+                                                 <button type="submit" class="btn_stage_form hover_btn">Отправить заявку</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="stage_item">
-                            <div class="wrapp_number_item">
-                                <span class="number_stage_"></span>
+                        <div class="mobile_hide_wrapper">
+                            <div class="stage_item">
+                                <div class="wrapp_number_item">
+                                    <span class="number_stage_">07</span>
+                                </div>
+                                <div class="block_text_stage">
+                                    <p class="title-desc_stage_item">Lorem ipsum dolor sit amet, consectetur</p>
+                                    <p class="desc_stage_item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore consectetur adipiscing elit</p>
+                                </div>
                             </div>
-                            <div class="block_text_stage">
-                                <p class="title-desc_stage_item">Lorem ipsum dolor sit amet, consectetur</p>
-                                <p class="desc_stage_item">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+
+                            <div class="mobile_stage_area">
+                                <p class="mob_stage_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     incididunt ut labore consectetur adipiscing elit</p>
+                                <div class="block_area_stage_mob ">
+                                    <img src="./img/Rectangle 124.png" alt="img" class="stages-image_mob">
+                                    <div class="block_form_stages">
+                                        <p class="leave_left_stage">
+                                            Оставьте заявку и получите дополнительную консультацию прямо сейчас
+                                        </p>
+            
+                                        <form id="form-stage1" class="form_stages">
+                                                <div class="wrapper_stage_input">
+                                                    <input name="phone" class="input_stage" type="tel" placeholder="Номер телефона">
+                                                    <input name="name_user" class="input_stage" type="text" placeholder="Ваше имя">
+                                                </div>
+                                                 <button type="submit" class="btn_stage_form hover_btn">Отправить заявку</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="block_area_stage">
-                        <img src="./img/Rectangle 124.png" alt="img" class="stages-image">
+                        <div class="tabs_img_wrapper">
+                            <img src="./img/Rectangle 124.png" alt="img" class="stages-image active_tab_img">
+                            <img src="./img/111.png" alt="img" class="stages-image">
+                            <img src="./img/222.png" alt="img" class="stages-image">
+                            <img src="./img/Rectangle 124.png" alt="img" class="stages-image">
+                            <img src="./img/Rectangle 124.png" alt="img" class="stages-image">
+                            <img src="./img/Rectangle 124.png" alt="img" class="stages-image">
+                            <img src="./img/Rectangle 124.png" alt="img" class="stages-image">
+                        </div>
                         <div class="block_form_stages">
                             <p class="leave_left_stage">
                                 Оставьте заявку и получите дополнительную консультацию прямо сейчас
@@ -1111,10 +1276,10 @@
 
                             <form id="form-stage2" class="form_stages">
                                     <div class="wrapper_stage_input">
-                                        <input class="input_stage" type="tel" placeholder="Номер телефона">
-                                        <input class="input_stage" type="text" placeholder="Ваше имя">
+                                        <input name="phone" class="input_stage" type="tel" placeholder="Номер телефона">
+                                        <input name="name_user" class="input_stage" type="text" placeholder="Ваше имя">
                                     </div>
-                                     <a href="#" class="btn_stage_form hover_btn">Отправить заявку</a>
+                                     <button type="submit" class="btn_stage_form hover_btn">Отправить заявку</button>
                             </form>
                         </div>
                     </div>

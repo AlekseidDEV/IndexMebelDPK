@@ -1,29 +1,30 @@
-export const tabsStageWork = () => {
+export const tabsMobile = () => {
     const tabBlock = document.querySelector('.block_stages_info')
-    const allTabsImg = document.querySelectorAll('.stages-image')
-    
+    const stageMobileArea = document.querySelectorAll('.mobile_stage_area')
+
     let activeTab = document.querySelector('.active_stage_item')
-    let activeImg = document.querySelector('.active_tab_img')
+    let activeStageArea = document.querySelector('.active_area_')
     let count = 0
 
     const changeTab = (targetTab) => {
         const countTab = targetTab.querySelector('.number_stage_')
 
         activeTab = document.querySelector('.active_stage_item')
-        activeImg = document.querySelector('.active_tab_img')
+        activeStageArea = document.querySelector('.active_area_')
         count = countTab.textContent.slice(1)
-        
+
         activeTab.classList.remove('active_stage_item')
         targetTab.classList.add('active_stage_item')
+        
+        activeStageArea.classList.remove('active_area_')
+        stageMobileArea[count - 1].classList.add('active_area_')
 
-        activeImg.classList.remove('active_tab_img')
-        allTabsImg[count - 1].classList.add('active_tab_img')
-        allTabsImg[count - 1].scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
+        targetTab.scrollIntoView({
+            behavior: 'instant',
+            block: 'center'
         })
     }
-    
+
     tabBlock.addEventListener('click', (e) => {
         if(e.target.closest('.stage_item')){
             changeTab(e.target.closest('.stage_item'))

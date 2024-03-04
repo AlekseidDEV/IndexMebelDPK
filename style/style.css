@@ -1176,6 +1176,7 @@ body {
 
 .stars_reviews_wrapper {
     display: flex;
+    justify-content: end;
 }
 
 .star_cst {
@@ -1193,6 +1194,7 @@ body {
     max-height: 90px;
     overflow: hidden;
     margin-bottom: 10px;
+    transition: .3s;
 }
 
 .review_ext {
@@ -1285,6 +1287,7 @@ body {
 
 .textarea_rev {
     margin-top: 20px;
+    padding-right: 25px;
     border: none;
     width: 100%;
     box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.05);
@@ -1333,27 +1336,34 @@ background: rgb(255, 255, 255);
 }
 
 .block_inputs_imgfile {
+    max-width: 996px;
     width: 100%;
-    height: 105px;
+    height: 115px;
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
+}
+
+.fake_input{
+    width: 105px; 
 }
 
 .active_choose {
     cursor: pointer;
     max-width: 105px;
     width: 100%;
-    height: 100%;
+    height: 105px;
     background: url(../img/activeinput.svg) no-repeat center/cover;
 }
 
 .not_selected {
     max-width: 105px;
     width: 100%;
-    height: 100%;
+    height: 105px;
     display: flex;
     background: url(../img/notactinput.svg) no-repeat center/cover;
+    position: relative;
+    order: 1;
 }
 
 .field_info_user {
@@ -1405,16 +1415,24 @@ background: rgb(255, 255, 255);
 }
 
 @media (max-width: 1000px) {
-
-    .block_inputs_imgfile label:nth-child(6),
-    .block_inputs_imgfile label:nth-child(7),
-    .block_inputs_imgfile label:nth-child(8) {
-        display: none;
-    }
-
     .block_inputs_imgfile {
         justify-content: flex-start;
         gap: 20px;
+        overflow-x: auto;
+        max-width: 680px;
+        width: 100%;
+    }
+
+    .block_inputs_imgfile::-webkit-scrollbar {
+       height: 5px;
+    }
+    
+    .block_inputs_imgfile::-webkit-scrollbar-thumb {
+        background-color: #2e9375;
+    }
+    
+    .block_inputs_imgfile::-webkit-scrollbar-track {
+        background-color: rgb(233, 232, 232);
     }
 }
 
@@ -1441,13 +1459,6 @@ background: rgb(255, 255, 255);
 }
 
 @media (max-width: 640px) {
-
-    .block_inputs_imgfile label:nth-child(3),
-    .block_inputs_imgfile label:nth-child(4),
-    .block_inputs_imgfile label:nth-child(5) {
-        display: none;
-    }
-
     .block_put_stars {
         flex-direction: column;
         gap: 20px;
@@ -1521,6 +1532,12 @@ background: rgb(255, 255, 255);
     .not_selected {
         max-width: 80px;
         height: 80px;
+    }
+
+    .block_inputs_imgfile{
+        height: 90px;
+        max-width: 320px;
+        width: 100%;
     }
 }
 /* wrapper_reviews_block */
@@ -2432,12 +2449,13 @@ transform: translateX(800px);
 
 
     .number_stage_{
-        width: 54px;
-        height: 35px;
-        background: url(../img/01.svg) no-repeat center;
         display: flex;
-        margin-right: 30px;
-        margin-top: 7px;
+        color: rgb(46, 147, 117);
+        font-family: "Montserrat";
+        font-size: 50px;
+        font-weight: 700;
+        line-height: 61px;
+        margin-top: -10px;
     }
 
     .stage_item{
@@ -2445,12 +2463,16 @@ transform: translateX(800px);
         max-width: 785px;
         width: 100%;
         transition: 0.3s;
-        margin-bottom: 40px;
         cursor: pointer;
+        gap: 30px;
     }
 
-    .stage_item:last-child{
-        margin-bottom: 0;
+    .mobile_hide_wrapper{
+        margin-bottom: 40px;
+    }
+    
+    .mobile_stage_area{
+        display: none;
     }
 
     .stage_item.active_stage_item{
@@ -2483,10 +2505,19 @@ letter-spacing: 0%;
 text-align: left;
     }
 
+    .stages-image_mob,
     .stages-image{
         max-width: 619px;
         width: 100%;
         margin-bottom: 40px;
+    }
+
+    .tabs_img_wrapper img{
+        display: none;
+    }
+
+    .tabs_img_wrapper .active_tab_img{
+        display: block;
     }
 
     .block_stages_info{
@@ -2497,6 +2528,10 @@ text-align: left;
         height: auto;
     }
 
+    .active_area_{
+        display: none;
+    }
+
     .block_area_stage_mob,
     .block_area_stage{
         max-width: 619px;
@@ -2504,7 +2539,6 @@ text-align: left;
         flex-shrink: 2;
     }
     .block_area_stage_mob{
-        display: none;
         margin: auto;
         margin-bottom: 40px;
     }
@@ -2555,6 +2589,7 @@ padding-left: 40px;
         display: flex;
         justify-content: center;
         align-items: center;
+        border: none;
         box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
 background: rgb(87, 87, 87);
         /*text  */
@@ -2578,12 +2613,12 @@ overflow: hidden;
             display: none;
         }
 
-        .active_area_{
-            display: block;
-        }
-
         .block_stages_info{
             margin: auto;
+        }
+
+        .active_area_{
+            display: flex;
         }
     }
 
@@ -2597,13 +2632,6 @@ overflow: hidden;
             margin-top: 10px;
             font-size: 18px;
             line-height: 130%;
-        }
-
-        .number_stage_{
-            width: 40px;
-            height: 30px;
-            background-size: cover;
-            margin-top: 4px;
         }
 
         .wrapp_number_item{
@@ -2629,6 +2657,10 @@ overflow: hidden;
             display: block;
             font-size: 18px;
             margin-bottom: 20px;
+        }
+        
+        .mobile_stage_area {
+            flex-direction: column;
         }
 
         .title-desc_stage_item{
@@ -3449,6 +3481,26 @@ button{
 
 .swiper-pagination-progressbar-fill{
     background: #2e9375 !important;
+}
+
+.delimg{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    display: none;
+    border-radius: 20px;
+    right: -10px;
+    top: -10px;
+    background: #575757;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.close_icon{
+    width: 10px;
+    height: 10px;
+    background: url(../img/closeGrey.svg) no-repeat center/cover;
 }
 
 /* сбросы анимаций наведения */
