@@ -1112,6 +1112,8 @@ body {
     overflow-x: hidden;
     max-height: 759px;
     padding-right: 20px;
+    position: relative;
+    z-index: 999;
 }
 
 .reviews_area::-webkit-scrollbar {
@@ -1159,7 +1161,7 @@ body {
     height: 130px;
     bottom: 0;
     left: 0;
-    z-index: 999;
+    z-index: 1;
     transition: 0.5s;
 }
 
@@ -1204,12 +1206,19 @@ body {
     font-weight: 700;
     line-height: 22px;
     text-align: left;
+    z-index: 999;
 }
 
 .reviews_images_user {
     display: flex;
     margin-top: 30px;
     gap: 10px;
+}
+
+.reviews_images_user img{
+    height: 65px;
+    width: 80px;
+    object-fit: cover;
 }
 
 .hr_item_review {

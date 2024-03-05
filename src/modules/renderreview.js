@@ -1,11 +1,18 @@
 export const renderReview = (data, urlImg) => {
     const reviewsBlock = document.querySelector('.reviews_area')
 
+    const dataReview = new Date().toISOString().slice(0, 10).split('-')
+    const reverseDataArr = dataReview.reverse().join('.')
+
     let messages = data.text_message.split('. ');
     let fragmentStars = document.createDocumentFragment()
     let fragmentParagraph = document.createDocumentFragment()
+    let fragmentImg = document.createDocumentFragment()
+    let linkString = '<a href="#" class="review_ext">Развернуть</a>'
+    let resultStringLink = `${messages.join('. ').length < 225 ? '' : linkString}`
     let stringFragmentStars = ''
     let stringFragmentParag = ''
+    let stringFragmentImage = ''
 
     for(let i = 0; i <= data.starActive - 1; i++){
         const newSpan = document.createElement('span')
@@ -16,13 +23,12 @@ export const renderReview = (data, urlImg) => {
     for(let i = 0; i < messages.length - 1; i++){
         const curentString = messages[i]
         const nextString = messages[i + 1]
-        if(curentString.length < 320 && nextString.length < 270){
+        if(curentString.length < 257 && nextString.length < 257){
             messages[i] = curentString + ' ' + nextString;
             messages.splice(i + 1, 1)
         }
     }
-    // ! Поиграть с величиныами, может получится нормаль склеивать строку
-
+ 
     for(let i = 0; i < messages.length; i++){
         const newP = document.createElement('p')
         newP.textContent = messages[i]
@@ -31,9 +37,18 @@ export const renderReview = (data, urlImg) => {
         fragmentParagraph.append(newP)
     }
 
+    for(let i = 0; i <= urlImg.length - 1; i++){
+        const newImg = document.createElement('img')
+
+        newImg.alt = "img"
+        newImg.src = urlImg[i]
+
+        fragmentImg.append(newImg)
+    }
+
     stringFragmentStars = new XMLSerializer().serializeToString(fragmentStars)
     stringFragmentParag = new XMLSerializer().serializeToString(fragmentParagraph)
-
+    stringFragmentImage = new XMLSerializer().serializeToString(fragmentImg)
 
     reviewsBlock.insertAdjacentHTML("beforeend", `
     <div class="reviews_item">
@@ -44,7 +59,7 @@ export const renderReview = (data, urlImg) => {
         </div>
 
         <div class="user_stats">
-            <p class="date_reviews">01.01.2021</p>
+            <p class="date_reviews">${reverseDataArr}</p>
             <div class="stars_reviews_wrapper">
                 ${stringFragmentStars}
             </div>
@@ -55,13 +70,11 @@ export const renderReview = (data, urlImg) => {
         <div class="all_text_reviews">
             ${stringFragmentParag}
         </div>
-        <a href="#"  class="review_ext">Развернуть</a>
+        ${resultStringLink}
     </div>
 
     <div class="reviews_images_user">
-        <img src="./img/картинкаотзыв.png" alt="img">
-        <img src="./img/картинкаотзыв.png" alt="img">
-        <img src="./img/картинкаотзыв.png" alt="img">
+            ${stringFragmentImage}
     </div>
     <div class="hr_item_review">
 

@@ -19,7 +19,6 @@ export const scrollBlock = () => {
     scrollBlock.addEventListener('click', (e) => {
         e.preventDefault()
         if(e.target.className === 'review_ext'){
-            console.log(1);
             openDescription(e.target, e.target.closest('.reviews_item'), true)
         } else if(e.target.matches('.review_ext.grey_hide')){
             openDescription(e.target, e.target.closest('.reviews_item'), false)

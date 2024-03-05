@@ -1,53 +1,53 @@
 export const changeImgReview = () => {
     const changeBlock = document.querySelector('.block_inputs_imgfile')
     const messageParag = document.querySelector('.message_file')
-    const allCloseIcon = document.querySelectorAll('.delimg')
+    const activeChooce = document.querySelector('.active_choose input')
 
-    let allSelectedZone = document.querySelectorAll('.not_selected')
+    let allSelectedZone = document.querySelectorAll('label[class="not_selected"]')
 
-    let quantity = -1
+    let quantity = 0
 
-    const delSelectedImg = (closeTarget) => {
-        allSelectedZone = document.querySelectorAll('.not_selected')
 
+    const delSelectedImg = (closeTargetIcon, label) => {
         quantity--
 
-        allCloseIcon.forEach((icon, index) => {
-            if(icon === closeTarget){
-                icon.style.display = 'none'
+        if(activeChooce.getAttribute('disabled')) activeChooce.removeAttribute('disabled')
+        
+        closeTargetIcon.style.display = 'none'
 
-                allSelectedZone[index].removeAttribute('style')
-                allSelectedZone[index].style.order = `${allSelectedZone.length}`
-                messageParag.textContent = `Фото добавлено: ${quantity + 1} из ${allSelectedZone.length}`
-            }
-        })
+        changeBlock.append(label)
+        label.removeAttribute('style')
+        label.classList.remove('added_file')
+
+       allSelectedZone = document.querySelectorAll('label[class="not_selected"]')
+
+       messageParag.textContent = `Добавлено фото: ${quantity} из 7`
     }
 
-    const changeLabel = (selectedFile) => {
+    const changeLabel = (e, selectedFile) => {
         const reader = new FileReader()
-
-        allSelectedZone = document.querySelectorAll('.not_selected')
+        let closeIcon
+        
+        allSelectedZone = document.querySelectorAll('label[class="not_selected"]')
         reader.readAsDataURL(selectedFile)
-        messageParag.style = ''
 
         quantity++
 
+        if(quantity >= 7){
+            messageParag.textContent = 'Добавленно максимальное количество картинок'
+            activeChooce.setAttribute('disabled', 'disabled')
+        } else{
+            messageParag.textContent = `Добавлено фото: ${quantity} из 7`
+        }
+
         reader.addEventListener('load', (e) => {
-            if(quantity <= 7){
-                allSelectedZone[quantity].classList.add('added_file')
-                allSelectedZone[quantity].style.cssText = `
+            closeIcon = allSelectedZone[0].querySelector('.delimg')
+            allSelectedZone[0].classList.add('added_file')
+            allSelectedZone[0].style.cssText = `
             background: url(${e.target.result}) no-repeat center/cover;
             border-radius: 8px;
             `
-            allCloseIcon[quantity].style.display = 'flex'
-            messageParag.textContent = `Фото добавлено: ${quantity + 1} из ${allSelectedZone.length}`
-            } else if(quantity > 7){
-                messageParag.textContent = 'Выбранно максимально количество файлов'
-            }
-        })
-        reader.addEventListener('error', () => {
-            messageParag.style.color = 'red'
-            messageParag.textContent = `Произошла ошибка при чтении файла: ${selectedFile}`
+            closeIcon.style.display = 'flex'
         })
     }
 
@@ -57,12 +57,11 @@ export const changeImgReview = () => {
         }
 
         if(e.target.closest('.delimg')){
-            delSelectedImg(e.target.closest('.delimg'))
+            delSelectedImg(e.target.closest('.delimg'), e.target.closest('label'))
         }
     })
 
     changeBlock.addEventListener('change', (e) => {
-        changeLabel(e.target.files[0])
+        changeLabel(e, e.target.files[0])
     })
-    // TODO передумать логику
 }
