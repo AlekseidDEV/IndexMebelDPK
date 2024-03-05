@@ -22,21 +22,27 @@ export const sendForm = (form, selectOptions) => {
                 success = true
             }
         })
-
         return success
     }
 
-    const sendFormServer = () => {
-        return fetch('file.php', {
+    const sendFormServer = (data) => {
+        return fetch('https://jsonplaceholder.typicode.com/posts', {
             method: "POST",
-            body: 'УКАЗАТЬ ТЕЛО'
-            // ! указать нужные настройки
-        })
+            headers: {"Content-Type": "application/json;charset=utf-8"},
+            body: JSON.stringify(data)
+        }).then(res => res.json())
     }
 
-
     if(validInput(allInput)){
-        sendFormServer()
+        sendFormServer(formBody)
+            .then(data => {
+                allInput.forEach((input) => {
+                    input.value = ''
+                })
+            })
+            .catch((error) => {
+                console.error(error)
+            })
     } else{
         alert('заполните поля')
     }
